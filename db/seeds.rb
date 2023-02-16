@@ -7,7 +7,6 @@ Hairstyle.destroy_all
 puts "🌱 Seeding data..."
 
 puts "Creating clients..."
-Client.create(name: "Walker")
 Client.create(name: "Pitbull/Mr. Worldwide")
 Client.create(name: "Questlove")
 Client.create(name: "Pink")
@@ -21,47 +20,46 @@ Barber.create(name: "Baraka")
 Barber.create(name: "Freddie Kruger")
 Barber.create(name: "Edward Scissorhands")
 Barber.create(name: "Super Shredder")
-Barber.create(name: "Crablante")
 
 puts "Creating hairstyles..."
 Hairstyle.create(
   name: "Family Haircut",
   price: 25,
   duration: 20,
-  description: "Head Shave - I don't have friends, I got family.",
-  picture: "",
+  description: "A nice clean head shave. As Dom Toretto says, 'I don't have friends, I got family.'",
+  picture: "./vindiesel.jpg",
   soundclip: ""
 )
 Hairstyle.create(
   name: "Afro Samurai",
   price: 50,
   duration: 60,
-  description: "No comment",
-  picture: "",
+  description: "No decription is needed for this haircut.",
+  picture: "./afrosamurai.jpg",
   soundclip: ""
 )
 Hairstyle.create(
   name: "Extra Cool Goth Kid",
   price: 35,
   duration: 30,
-  description: "Everyone's just walking around like a bunch of conformists, they're all zombies racing to their graves.  Have fun in your rat race life, living paycheck to paycheck for corporate gains.",
-  picture: "",
+  description: "Be different with this haircut. 'Everyone's just walking around like a bunch of conformists, they're all zombies racing to their graves.' -Pete Thelman",
+  picture: "./extracoolgothkid.jpg",
   soundclip: ""
 )
 Hairstyle.create(
   name: "Cobra Kai",
   price: 40,
   duration: 45,
-  description: "The best defense is more offense.",
-  picture: "",
+  description: "The best defense is more offense. With this haircut, you don't have to worry about defense.",
+  picture: "./cobrakai.jpg",
   soundclip: ""
 )
 Hairstyle.create(
   name: "Statefarm",
   price: 40,
   duration: 40,
-  description: "Mahomes magic haircut will give you the confidence just like the MVP",
-  picture: "",
+  description: "This Mahomes magic haircut will give you the confidence just like the MVP.",
+  picture: "./statefarm.jpg",
   soundclip: ""
 )
 
@@ -74,6 +72,7 @@ puts "Creating appointments..."
     datetime: rand(1000..10000) # need random datetime range
   )
 }
+# time format: %Y-%m-%dT%l:%M
 # Appointment.create(client_id: 2, barber_id: Barber.ids.sample, hairstyle_id: 1, datetime: rand(1000..10000))
 # Appointment.create(client_id: 3, barber_id: Barber.ids.sample, hairstyle_id: 2, datetime: rand(1000..10000))
 # Appointment.create(client_id: 4, barber_id: Barber.ids.sample, hairstyle_id: 4, datetime: rand(1000..10000))
