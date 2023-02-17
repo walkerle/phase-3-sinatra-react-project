@@ -35,22 +35,28 @@ class ApplicationController < Sinatra::Base
       # get from client table the client id from the new name
       barber_id: Barber.find_by(name: params[:barber]).id,
       hairstyle_id: Hairstyle.find_by(name: params[:hairstyle]).id,
-      datetime: params[:datetime],
+      datetime: params[:datetime]
     )
-    appointment.to_json # post response
+    appointment.to_json(include: [:client, :barber, :hairstyle]) # post response
   end
 
   post '/clients' do # Create client
     # binding.pry # use POSTMAN
 
-    client = Client.create(name: params[:name])
-    appointment.to_json # post response
+    client = Client.create(name: params[:client])
+    client.to_json # post response
   end
 
   patch '/appointments/:id' do # Update appointment
     # binding.pry # use POSTMAN
-    # appointment = current_client.appointments.create
-    # appointment.to_json # patch response
+    appointment = Appointment.find(params[:id])
+    appointment.update(
+      client_id: Client.find_by(name: params[:client]).id,
+      barber_id: Barber.find_by(name: params[:barber]).id,
+      hairstyle_id: Hairstyle.find_by(name: params[:hairstyle]).id,
+      datetime: params[:datetime]
+    )
+    appointment.to_json(include: [:client, :barber, :hairstyle]) # patch response
   end
 
   delete '/appointments/:id' do # Delete appointment

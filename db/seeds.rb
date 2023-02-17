@@ -34,7 +34,7 @@ Hairstyle.create(
   name: "Afro Samurai",
   price: 50,
   duration: 60,
-  description: "No decription is needed for this haircut.",
+  description: "No description is needed for this haircut.",
   picture: "./afrosamurai.jpg",
   soundclip: ""
 )
@@ -72,6 +72,7 @@ puts "Creating appointments..."
     datetime: rand(1000..10000) # need random datetime range
   )
 }
+Appointment.create(client_id: 2, barber_id: Barber.ids.sample, hairstyle_id: 1, datetime: "2023-02-17 17:00")
 # time format: %Y-%m-%dT%l:%M
 # Appointment.create(client_id: 2, barber_id: Barber.ids.sample, hairstyle_id: 1, datetime: rand(1000..10000))
 # Appointment.create(client_id: 3, barber_id: Barber.ids.sample, hairstyle_id: 2, datetime: rand(1000..10000))

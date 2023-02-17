@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2023_02_14_165545) do
     t.integer "client_id"
     t.integer "barber_id"
     t.integer "hairstyle_id"
-    t.integer "datetime"
+    t.datetime "datetime"
   end
 
   create_table "barbers", force: :cascade do |t|
